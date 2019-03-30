@@ -19,9 +19,8 @@ public class Client {
         int port = 8088;
         SocketChannel sc = SocketChannel.open();
         sc.configureBlocking(false);
-
         if(sc.connect(new InetSocketAddress(ip,port))){
-            sc.register(selector, SelectionKey.OP_READ);
+            sc.register(selector, SelectionKey.OP_CONNECT);
             doWrite(sc,"You are 66666!");
         }
 
